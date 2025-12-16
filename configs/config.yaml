@@ -1,0 +1,70 @@
+# Main Configuration File for Animal Sound Recognition
+
+project:
+  name: "animal-sound-recognition"
+  seed: 42
+  
+data:
+  dataset: "ESC-50"
+  data_dir: "data/raw"
+  processed_dir: "data/processed"
+  sample_rate: 44100
+  duration: 5  # seconds
+  
+  # Filter for animal sounds only
+  filter_animal_sounds: true
+  # Animal sound categories in ESC-50: dog, rooster, pig, cow, frog, cat, hen, insects, sheep, crow
+  animal_categories: ["dog", "rooster", "pig", "cow", "frog", "hen", "cat", "insects", "sheep", "crow"]
+  
+  # Data splits
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  
+  # Augmentation
+  augmentation:
+    enabled: true
+    time_shift: true
+    pitch_shift: true
+    add_noise: true
+    time_stretch: true
+    augmentation_multiplier: 3  # Create 3x more samples
+
+features:
+  type: "mel_spectrogram"  # options: mfcc, mel_spectrogram, raw_audio
+  n_mels: 128
+  n_fft: 2048
+  hop_length: 512
+  n_mfcc: 40
+  
+model:
+  architecture: "attention_cnn"  # options: cnn, improved_cnn, attention_cnn, lstm
+  num_classes: 10  # 10 animal sound classes
+  dropout: 0.3  # Reduced dropout for better learning
+  
+training:
+  batch_size: 128  # Smaller batch for better gradients
+  epochs: 100  # More epochs with early stopping
+  learning_rate: 0.001  # Lower learning rate for stability
+  optimizer: "adam"
+  scheduler: "reduce_on_plateau"
+  early_stopping:
+    enabled: true
+    patience: 15  # More patience
+    min_delta: 0.001
+  
+  # Checkpoint settings
+  save_best_only: true
+  checkpoint_dir: "models/checkpoints"
+  
+evaluation:
+  metrics: ["accuracy", "f1_score", "confusion_matrix"]
+  
+logging:
+  use_tensorboard: true
+  use_wandb: false
+  log_dir: "logs"
+  
+paths:
+  model_save_dir: "models/saved_models"
+  output_dir: "outputs"

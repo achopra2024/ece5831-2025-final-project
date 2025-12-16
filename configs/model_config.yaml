@@ -1,0 +1,43 @@
+# Model Architecture Configurations
+
+cnn:
+  input_shape: [128, 128, 1]
+  conv_layers:
+    - filters: 32
+      kernel_size: [3, 3]
+      activation: "relu"
+      pool_size: [2, 2]
+    - filters: 64
+      kernel_size: [3, 3]
+      activation: "relu"
+      pool_size: [2, 2]
+    - filters: 128
+      kernel_size: [3, 3]
+      activation: "relu"
+      pool_size: [2, 2]
+  dense_layers:
+    - units: 128
+      activation: "relu"
+      dropout: 0.5
+    - units: 10
+      activation: "softmax"
+      dropout: 0.3
+
+resnet:
+  base_model: "resnet50"
+  pretrained: true
+  freeze_base: false
+  fine_tune_from_layer: 100
+  
+lstm:
+  hidden_size: 256
+  num_layers: 2
+  bidirectional: true
+  dropout: 0.3
+  
+transformer:
+  d_model: 512
+  nhead: 8
+  num_encoder_layers: 6
+  dim_feedforward: 2048
+  dropout: 0.1

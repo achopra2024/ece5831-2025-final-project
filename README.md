@@ -32,7 +32,7 @@ The system achieves **70-80% accuracy** on test data using attention-based CNN a
 | 🎥 **Presentation Video** | [Watch on YouTube](https://youtu.be/kaKb7_GryvI) |
 | 📽️ **Presentation Slides** | [View Slides](https://drive.google.com/file/d/1FxaPLpfRZv63Xk2IzNLaa8ElJhKu5Nl0/view?usp=drive_link) |
 | 📄 **Project Report** | [Read Report (PDF)](https://drive.google.com/file/d/1inip4OykwmhV6Su-BJJApyRvp904jz_w/view?usp=drive_link) |
-| 📁 **Dataset (ESC-50)** | [Download from Kaggle](https://www.kaggle.com/datasets/apollo2506/eurosat-dataset) |
+| 📁 **Dataset (ESC-50)** | [Dataset](https://drive.google.com/drive/folders/1-2HIkpHZZIs5QChxNn1cKl6dUC6YtcL5?usp=drive_link) |
 | 🎬 **Demo Video** | [Watch Demo](https://youtu.be/sWr0Basz-k0) |
 
 ## 🚀 Quick Start
